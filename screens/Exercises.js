@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 import {database} from '../data/data';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import Header from '../components/Header';
 
 const Exercises = ({route, navigation}) => {
   const {item} = route.params;
@@ -50,6 +51,7 @@ const Exercises = ({route, navigation}) => {
     <SafeAreaView
       style={styles.container}
       style={{backgroundColor: colors.background}}>
+      <Header />
       <Text
         style={{
           fontWeight: 'bold',
@@ -66,8 +68,12 @@ const Exercises = ({route, navigation}) => {
           renderItem={renderItem}
         />
       ) : (
-        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-          <Text style={{fontWeight: 'bold', color: 'red'}}>
+        <View
+          style={{
+            height: '100%',
+            alignItems: 'center',
+          }}>
+          <Text style={{fontWeight: 'bold', color: 'red', fontSize: 26}}>
             No exercises found...
           </Text>
         </View>

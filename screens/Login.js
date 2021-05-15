@@ -21,34 +21,34 @@ const Login = ({navigation}) => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    // if (user) {
-    navigation.replace('Home');
-    // }
-    // setLoading(false);
+    if (user) {
+      navigation.replace('Home');
+    }
+    setLoading(false);
   }, [user]);
 
-  // useEffect(() => {
-  //   GoogleSignin.configure({
-  //     webClientId:
-  //       '151765368486-im7ib8iafp4ksmc8ugnrhbr00oenn2ae.apps.googleusercontent.com',
-  //   });
-  // }, []);
+  useEffect(() => {
+    GoogleSignin.configure({
+      webClientId:
+        '151765368486-im7ib8iafp4ksmc8ugnrhbr00oenn2ae.apps.googleusercontent.com',
+    });
+  }, []);
 
-  // useEffect(() => {
-  //   (async () => {
-  //     try {
-  //       const {user} = await GoogleSignin.signInSilently();
-  //       setUser(user);
-  //       setLoading(false);
-  //     } catch (error) {
-  //       if (error.code === statusCodes.SIGN_IN_REQUIRED) {
-  //         console.log('user has not signed in yet');
-  //       } else {
-  //         console.log('some other error');
-  //       }
-  //     }
-  //   })();
-  // }, []);
+  useEffect(() => {
+    (async () => {
+      try {
+        const {user} = await GoogleSignin.signInSilently();
+        setUser(user);
+        setLoading(false);
+      } catch (error) {
+        if (error.code === statusCodes.SIGN_IN_REQUIRED) {
+          console.log('user has not signed in yet');
+        } else {
+          console.log('some other error');
+        }
+      }
+    })();
+  }, []);
 
   const onGoogleButtonPress = async () => {
     try {
@@ -86,12 +86,12 @@ const Login = ({navigation}) => {
           />
         )}
       </View>
-      {/* <GoogleSigninButton
+      <GoogleSigninButton
         style={{width: 192, height: 48}}
         size={GoogleSigninButton.Size.Wide}
         color={GoogleSigninButton.Color.Dark}
         onPress={onGoogleButtonPress}
-      /> */}
+      />
     </SafeAreaView>
   );
 };

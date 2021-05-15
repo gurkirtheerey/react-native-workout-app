@@ -14,11 +14,11 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Home from './screens/Home';
 import Exercises from './screens/Exercises';
 import Details from './screens/Details';
-import {View, Text} from 'react-native';
 import {useState} from 'react';
 import UserContext from './context/UserContext';
 import Login from './screens/Login';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import Profile from './screens/Profile';
 Icon.loadFont();
 
 const Stack = createStackNavigator();
@@ -45,27 +45,13 @@ const tabOptions = {
   },
 };
 
-const ProfileScreen = () => {
-  return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: '100%',
-      }}>
-      <Text>Profile!</Text>
-    </View>
-  );
-};
-
 const Homepage = () => {
   return (
     <Drawer.Navigator>
       <Drawer.Screen name="Homepage" component={Home} />
       <Drawer.Screen
         name="Profile"
-        component={ProfileScreen}
+        component={Profile}
         options={{
           tabBarLabel: '',
           tabBarIcon: ({color, size}) => (
@@ -92,7 +78,7 @@ const HomeScreen = () => {
       />
       <Tab.Screen
         name="Profile"
-        component={ProfileScreen}
+        component={Profile}
         options={{
           tabBarLabel: '',
           tabBarIcon: ({color, size}) => (
@@ -129,7 +115,7 @@ const ExerciseScreen = () => {
       />
       <Tab.Screen
         name="Profile"
-        component={ProfileScreen}
+        component={Profile}
         options={{
           tabBarLabel: '',
           tabBarIcon: ({color, size}) => (

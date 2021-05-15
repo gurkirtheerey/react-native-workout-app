@@ -15,6 +15,7 @@ import UserContext from '../context/UserContext';
 import WorkoutCard from '../components/WorkoutCard';
 import {useTheme} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import Header from '../components/Header';
 
 const Home = ({navigation}) => {
   const {colors} = useTheme();
@@ -24,14 +25,7 @@ const Home = ({navigation}) => {
     <SafeAreaView
       style={styles.container}
       style={{backgroundColor: colors.background}}>
-      <TouchableOpacity
-        onPress={() => navigation.toggleDrawer()}
-        style={{
-          alignItems: 'flex-end',
-          margin: 20,
-        }}>
-        <Icon name="bars" size={30} />
-      </TouchableOpacity>
+      <Header />
       <View>
         <View>
           <Text style={styles.text}>Select Muscle</Text>
