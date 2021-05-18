@@ -22,7 +22,6 @@ const Profile = ({navigation}) => {
   const {user, setUser} = useContext(UserContext);
   const [exercises, setExercises] = useState([]);
   const [view, setView] = useState('exercises');
-  const {colors} = useTheme();
 
   const logout = async () => {
     try {
@@ -63,7 +62,6 @@ const Profile = ({navigation}) => {
         style={{
           flex: 0.4,
           width: '100%',
-          backgroundColor: colors.secondary,
           borderBottomRightRadius: 20,
           borderBottomLeftRadius: 20,
         }}>
@@ -75,36 +73,35 @@ const Profile = ({navigation}) => {
             marginHorizontal: 20,
           }}
           onPress={() => logout()}>
-          <Icon name="sign-out" size={30} color="#fff" />
+          <Icon name="sign-out" size={30} color="#000" />
         </TouchableOpacity>
         <View
           style={{
             flex: 1,
             width: '100%',
-            justifyContent: 'center',
+            justifyContent: 'space-around',
             alignItems: 'center',
             height: '100%',
             borderRadius: 25,
           }}>
+          <Text
+            style={{
+              fontWeight: 'bold',
+              fontSize: 22,
+              textAlign: 'center',
+            }}>
+            {user.name}
+          </Text>
           <Image
             source={{uri: user.photo}}
             style={{
               resizeMode: 'contain',
-              height: 150,
-              width: 150,
+              height: 110,
+              width: 110,
               borderRadius: 100,
             }}
           />
           <View>
-            <Text
-              style={{
-                fontWeight: 'bold',
-                fontSize: 22,
-                margin: 8,
-                textAlign: 'center',
-              }}>
-              {user.name}
-            </Text>
             <Text
               style={{
                 fontWeight: 'bold',
@@ -155,24 +152,48 @@ const Profile = ({navigation}) => {
                 const ex = exercise.data();
                 return (
                   <TouchableOpacity
+                    key={ex.id}
                     style={{
-                      paddingVertical: 5,
                       paddingHorizontal: 10,
-                      borderBottomColor: '#000',
+                      flex: 1,
+                      flexDirection: 'row',
+                      height: 80,
+                      justifyContent: 'space-between',
                       borderBottomWidth: 1,
-                      width: '100%',
-                      justifyContent: 'space-evenly',
-                    }}>
-                    <Text>{ex.name}</Text>
-                    <Text>{ex.level}</Text>
-                    <Text>{ex.rating}</Text>
+                      alignItems: 'center',
+                    }}
+                    onPress={() => navigation.navigate('Details', {item: ex})}>
+                    <View>
+                      <Text>{ex.name}</Text>
+                      <View>
+                        <Text style={{color: 'gray'}}>
+                          Muscle: {ex.targetedMuscle}
+                        </Text>
+                        <Text style={{color: 'gray'}}>
+                          Equipment: {ex.equipment}
+                        </Text>
+                      </View>
+                    </View>
+                    <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                      <Text style={{fontWeight: 'bold', marginRight: 2}}>
+                        Rating:
+                      </Text>
+                      <Text style={{marginRight: 5}}>{ex.rating}</Text>
+                      <Icon name="arrow-right" size={15} />
+                    </View>
                   </TouchableOpacity>
                 );
               })}
             </ScrollView>
-          ) : null
+          ) : (
+            <Text style={{textAlign: 'center', fontSize: 16}}>
+              It's empty... find some exercises from our catalog!
+            </Text>
+          )
         ) : (
-          <Text>Hello</Text>
+          <Text style={{textAlign: 'center', fontSize: 16}}>
+            It's empty... hit the plus icon to create a workout!
+          </Text>
         )}
       </View>
       <TouchableOpacity
@@ -180,7 +201,6 @@ const Profile = ({navigation}) => {
           position: 'absolute',
           top: '88%',
           left: '75%',
-          backgroundColor: colors.primary,
           padding: 25,
           borderRadius: 50,
         }}>

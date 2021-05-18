@@ -20,15 +20,15 @@ const Details = ({route, navigation}) => {
   const {user} = useContext(UserContext);
 
   const saveExercise = async () => {
-    const data = await firestore()
-      .collection('Workouts')
-      .add({
-        name: item.name,
-        id: item.id,
-        rating: item.rating,
-        level: item.level,
-        userId: user.id,
-      });
+    const data = await firestore().collection('Workouts').add({
+      id: item.id,
+      name: item.name,
+      rating: item.rating,
+      equipment: item.equipment,
+      targetedMuscle: item.targetedMuscle,
+      level: item.level,
+      userId: user.id,
+    });
     if (data) {
       navigation.navigate('Exercises');
       alert(`Saved ${item.name}`);

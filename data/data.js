@@ -30,7 +30,7 @@ export const database = [
     id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
     exercises: [
       {
-        id: '0568a099-3dc6-4fae-a4f9-f513876012d4',
+        id: '0568a0x9-3dc6-4fae-a4f9-f513876012d4',
         name: 'Rickshaw Carry',
         targetedMuscle: 'Forearms',
         equipment: 'Other',
