@@ -24,7 +24,7 @@ const Home = ({navigation}) => {
   return (
     <SafeAreaView
       style={styles.container}
-      style={{backgroundColor: colors.background}}>
+      style={{backgroundColor: colors.background, flex: 1}}>
       <Header />
       <View>
         <View>
@@ -37,80 +37,85 @@ const Home = ({navigation}) => {
           keyExtractor={item => item.id}
         />
       </View>
-      <ScrollView contentContainerStyle={{alignItems: 'center'}}>
-        <WorkoutCard
-          title="Gurkirt's Chest Day 🏋️‍♂️"
-          description="Get started with one of his favorite chest day worlouts!"
-          time="45"
-          color={colors.primary}
-        />
-        <WorkoutCard
-          title="Sunshine's Therapeutic Yoga 🧘‍♀️"
-          description="Unwind with a soothing yoga session with our instructor!"
-          time="25"
-          color={colors.secondary}
-        />
-        <WorkoutCard
-          title="Gurkirt's Chest Day 🏋️‍♂️"
-          description="Get started with one of his favorite chest day worlouts!"
-          time="45"
-          color={colors.primary}
-        />
-        <WorkoutCard
-          title="Sunshine's Therapeutic Yoga 🧘‍♀️"
-          description="Unwind with a soothing yoga session with our instructor!"
-          time="25"
-          color="#ffadad"
-        />
-        <WorkoutCard
-          title="Gurkirt's Chest Day 🏋️‍♂️"
-          description="Get started with one of his favorite chest day worlouts!"
-          time="45"
-          color={colors.primary}
-        />
-        <WorkoutCard
-          title="Sunshine's Therapeutic Yoga 🧘‍♀️"
-          description="Unwind with a soothing yoga session with our instructor!"
-          time="25"
-          color="#ffadad"
-        />
-        <WorkoutCard
-          title="Gurkirt's Chest Day 🏋️‍♂️"
-          description="Get started with one of his favorite chest day worlouts!"
-          time="45"
-          color={colors.primary}
-        />
-        <WorkoutCard
-          title="Sunshine's Therapeutic Yoga 🧘‍♀️"
-          description="Unwind with a soothing yoga session with our instructor!"
-          time="25"
-          color="#ffadad"
-        />
-        <WorkoutCard
-          title="Gurkirt's Chest Day 🏋️‍♂️"
-          description="Get started with one of his favorite chest day worlouts!"
-          time="45"
-          color={colors.primary}
-        />
-        <WorkoutCard
-          title="Sunshine's Therapeutic Yoga 🧘‍♀️"
-          description="Unwind with a soothing yoga session with our instructor!"
-          time="25"
-          color="#ffadad"
-        />
-        <WorkoutCard
-          title="Gurkirt's Chest Day 🏋️‍♂️"
-          description="Get started with one of his favorite chest day worlouts!"
-          time="45"
-          color={colors.primary}
-        />
-        <WorkoutCard
-          title="Sunshine's Therapeutic Yoga 🧘‍♀️"
-          description="Unwind with a soothing yoga session with our instructor!"
-          time="25"
-          color="#ffadad"
-        />
-      </ScrollView>
+      <SafeAreaView style={{flex: 1}}>
+        <ScrollView
+          contentContainerStyle={{
+            alignItems: 'center',
+          }}>
+          <WorkoutCard
+            title="Gurkirt's Chest Day 🏋️‍♂️"
+            description="Get started with one of his favorite chest day worlouts!"
+            time="45"
+            color={colors.primary}
+          />
+          <WorkoutCard
+            title="Sunshine's Therapeutic Yoga 🧘‍♀️"
+            description="Unwind with a soothing yoga session with our instructor!"
+            time="25"
+            color={colors.secondary}
+          />
+          <WorkoutCard
+            title="Gurkirt's Chest Day 🏋️‍♂️"
+            description="Get started with one of his favorite chest day worlouts!"
+            time="45"
+            color={colors.primary}
+          />
+          <WorkoutCard
+            title="Sunshine's Therapeutic Yoga 🧘‍♀️"
+            description="Unwind with a soothing yoga session with our instructor!"
+            time="25"
+            color="#ffadad"
+          />
+          <WorkoutCard
+            title="Gurkirt's Chest Day 🏋️‍♂️"
+            description="Get started with one of his favorite chest day worlouts!"
+            time="45"
+            color={colors.primary}
+          />
+          <WorkoutCard
+            title="Sunshine's Therapeutic Yoga 🧘‍♀️"
+            description="Unwind with a soothing yoga session with our instructor!"
+            time="25"
+            color="#ffadad"
+          />
+          <WorkoutCard
+            title="Gurkirt's Chest Day 🏋️‍♂️"
+            description="Get started with one of his favorite chest day worlouts!"
+            time="45"
+            color={colors.primary}
+          />
+          <WorkoutCard
+            title="Sunshine's Therapeutic Yoga 🧘‍♀️"
+            description="Unwind with a soothing yoga session with our instructor!"
+            time="25"
+            color="#ffadad"
+          />
+          <WorkoutCard
+            title="Gurkirt's Chest Day 🏋️‍♂️"
+            description="Get started with one of his favorite chest day worlouts!"
+            time="45"
+            color={colors.primary}
+          />
+          <WorkoutCard
+            title="Sunshine's Therapeutic Yoga 🧘‍♀️"
+            description="Unwind with a soothing yoga session with our instructor!"
+            time="25"
+            color="#ffadad"
+          />
+          <WorkoutCard
+            title="Gurkirt's Chest Day 🏋️‍♂️"
+            description="Get started with one of his favorite chest day worlouts!"
+            time="45"
+            color={colors.primary}
+          />
+          <WorkoutCard
+            title="Sunshine's Therapeutic Yoga 🧘‍♀️"
+            description="Unwind with a soothing yoga session with our instructor!"
+            time="25"
+            color="#ffadad"
+          />
+        </ScrollView>
+      </SafeAreaView>
     </SafeAreaView>
   );
 };

@@ -9,15 +9,30 @@ import {
   ScrollView,
   Dimensions,
 } from 'react-native';
+import firestore from '@react-native-firebase/firestore';
+import {useContext} from 'react';
+import UserContext from '../context/UserContext';
 
 const screen = Dimensions.get('screen');
 
 const Details = ({route, navigation}) => {
   const {item} = route.params;
+  const {user} = useContext(UserContext);
 
-  const saveExercise = () => {
-    navigation.navigate('Exercises');
-    alert(`Saved ${item.name}`);
+  const saveExercise = async () => {
+    const data = await firestore()
+      .collection('Workouts')
+      .add({
+        name: item.name,
+        id: item.id,
+        rating: item.rating,
+        level: item.level,
+        userId: user.id,
+      });
+    if (data) {
+      navigation.navigate('Exercises');
+      alert(`Saved ${item.name}`);
+    }
   };
 
   return (
